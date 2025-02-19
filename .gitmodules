@@ -1,0 +1,5 @@
+[submodule "Scripts"]
+	path = Scripts
+	url = https://github.com/Shirakoko/HTNDemo.git
+    branch = Scripts
+    update = merge
