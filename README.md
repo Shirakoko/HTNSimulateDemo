@@ -22,4 +22,4 @@
 
 ### 2. 在线运行 WebGL 版本
 
-访问 itch.io，直接在浏览器中运行 WebGL 版本。//TODO
+访问 itch.io，直接在浏览器中运行 WebGL 版本：[HTNSimulateDemo by Yuki](https://yukilovesgames.itch.io/htnsimulatedemo)
