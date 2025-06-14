@@ -1,0 +1,355 @@
+{
+    "WorldState": [
+        {
+            "name": "_energy",
+            "type": "int",
+            "min": 0,
+            "max": 10
+        },
+        {
+            "name": "_full",
+            "type": "int",
+            "min": 0,
+            "max": 10
+        },
+        {
+            "name": "_mood",
+            "type": "int",
+            "min": 0,
+            "max": 10
+        },
+        {
+            "name": "_masterBeside",
+            "type": "bool"
+        }
+    ],
+    "PrimitiveClasses": [
+        {
+            "name": "Eat",
+            "cnName": "吃饭",
+            "conditions": [
+                { 
+                    "field": "_full", 
+                    "type": "int", 
+                    "expression": "<= 8" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_full", 
+                    "operation": "+", 
+                    "value": "2" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "1" 
+                }
+            ]
+        },
+        {
+            "name": "Drink",
+            "cnName": "喝水",
+            "conditions": [],
+            "effects": [
+                { 
+                    "field": "_full", 
+                    "operation": "+", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "1" 
+                }
+            ]
+        },
+        {
+            "name": "Sleep",
+            "cnName": "睡觉",
+            "conditions": [
+                { 
+                    "field": "_energy", 
+                    "type": "int", 
+                    "expression": "<= 2" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_energy", 
+                    "operation": "+", 
+                    "value": "4" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "-", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_masterBeside", 
+                    "operation": "=", 
+                    "value": "false" 
+                }
+            ]
+        },
+        {
+            "name": "Poop",
+            "cnName": "拉屎",
+            "conditions": [
+                { 
+                    "field": "_full", 
+                    "type": "int", 
+                    "expression": ">= 6" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_full", 
+                    "operation": "-", 
+                    "value": "2" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "-", 
+                    "value": "2" 
+                },
+                { 
+                    "field": "_masterBeside", 
+                    "operation": "=", 
+                    "value": "false" 
+                }
+            ]
+        },
+        {
+            "name": "Destroy",
+            "cnName": "拆家",
+            "conditions": [
+                { 
+                    "field": "_energy", 
+                    "type": "int", 
+                    "expression": ">= 4" 
+                },
+                { 
+                    "field": "_mood", 
+                    "type": "int", 
+                    "expression": "<= 4" 
+                },
+                { 
+                    "field": "_masterBeside", 
+                    "type": "bool", 
+                    "expression": "== false" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_masterBeside", 
+                    "operation": "=", 
+                    "value": "true" 
+                },
+                { 
+                    "field": "_energy", 
+                    "operation": "-", 
+                    "value": "1" 
+                }
+            ]
+        },
+        {
+            "name": "Parkour",
+            "cnName": "跑酷",
+            "conditions": [
+                { 
+                    "field": "_energy", 
+                    "type": "int", 
+                    "expression": ">= 5" 
+                },
+                { 
+                    "field": "_mood", 
+                    "type": "int", 
+                    "expression": "<= 7" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_energy", 
+                    "operation": "-", 
+                    "value": "2" 
+                },
+                { 
+                    "field": "_full", 
+                    "operation": "-", 
+                    "value": "3" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "2" 
+                }
+            ]
+        },
+        {
+            "name": "ChaseCock",
+            "cnName": "追蟑螂",
+            "conditions": [
+                { 
+                    "field": "_energy", 
+                    "type": "int", 
+                    "expression": ">= 5" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_energy", 
+                    "operation": "-", 
+                    "value": "3" 
+                },
+                { 
+                    "field": "_full", 
+                    "operation": "-", 
+                    "value": "2" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "1" 
+                }
+            ]
+        },
+        {
+            "name": "EatCock",
+            "cnName": "吃蟑螂",
+            "conditions": [
+                { 
+                    "field": "_full", 
+                    "type": "int", 
+                    "expression": "<= 7" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_full", 
+                    "operation": "+", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_mood", 
+                    "operation": "-", 
+                    "value": "3" 
+                }
+            ]
+        },
+        {
+            "name": "Meow",
+            "cnName": "叫唤",
+            "conditions": [
+                { 
+                    "field": "_mood", 
+                    "type": "int", 
+                    "expression": ">= 7" 
+                },
+                { 
+                    "field": "_full", 
+                    "type": "int", 
+                    "expression": ">= 5" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_mood", 
+                    "operation": "-", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_full", 
+                    "operation": "-", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_masterBeside", 
+                    "operation": "=", 
+                    "value": "true" 
+                }
+            ]
+        },
+        {
+            "name": "RubMaster",
+            "cnName": "蹭主人",
+            "conditions": [
+                { 
+                    "field": "_masterBeside", 
+                    "type": "bool", 
+                    "expression": "== true" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_mood", 
+                    "operation": "-", 
+                    "value": "2" 
+                }
+            ]
+        },
+        {
+            "name": "Idle",
+            "cnName": "发呆",
+            "conditions": [],
+            "effects": [
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "1" 
+                }
+            ]
+        },
+        {
+            "name": "LickFur",
+            "cnName": "舔毛",
+            "conditions": [
+                { 
+                    "field": "_mood", 
+                    "type": "int", 
+                    "expression": "<= 5" 
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_energy", 
+                    "operation": "-", 
+                    "value": "1" 
+                }
+            ]
+        },
+        {
+            "name": "Bat",
+            "cnName": "打人",
+            "conditions": [
+                {
+                    "field": "_mood",
+                    "type": "int",
+                    "expression": "<= 3"
+                },
+                {
+                    "field": "_masterBeside",
+                    "type": "bool",
+                    "expression": "== true"
+                }
+            ],
+            "effects": [
+                { 
+                    "field": "_mood", 
+                    "operation": "+", 
+                    "value": "1" 
+                },
+                { 
+                    "field": "_masterBeside", 
+                    "operation": "=", 
+                    "value": "false" 
+                }
+            ]
+        }
+    ]
+}
